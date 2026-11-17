@@ -563,7 +563,8 @@ class QatRoundingConfig(BaseConfig):
     stochastic_rounding: bool = False
     """Round each scaled value to one of its two E2M1 neighbours, up with probability equal to its distance from the
     lower one: unbiased, where round-to-nearest repeats the same error every time. Scales stay the round-to-nearest
-    grid's, one E4M3 step larger where a block's largest value would saturate."""
+    grid's, one E4M3 step larger where a block's largest value would saturate. On sm_100 / sm_103 the hardware's
+    ``cvt.rs`` conversions round (8 random bits per value)."""
 
 
 @dataclass
